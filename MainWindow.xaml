@@ -26,14 +26,17 @@
                 Background="Black"
                 Foreground="White"
                 Click="Button_Left"/>
-        <TextBlock x:Name="textBlock"
-                   Grid.Row="0"
-                   Grid.Column="1"
-                   Grid.ColumnSpan="3"
-                   TextWrapping="Wrap"
-                   TextAlignment ="Center"
-                   VerticalAlignment="Center"
-                   Text="Row 0, Column 0"/>
+        <ScrollViewer  Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="3" 
+                       VerticalScrollBarVisibility="Auto" 
+                       HorizontalScrollBarVisibility="Disabled">
+            <TextBlock x:Name="textBlock"
+                       TextWrapping="Wrap"
+                       TextAlignment ="Center"
+                       VerticalAlignment="Center"
+                       Text="Row 0, Column 0"/>
+        </ScrollViewer>
         <Button x:Name="buttonRight"
                 Grid.Row="0"
                 Grid.Column="4"

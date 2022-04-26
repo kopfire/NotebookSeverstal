@@ -10,6 +10,7 @@ namespace Notebook
     {
 
         readonly Database database = new();
+
         static int count = 0;
 
         public MainWindow()
@@ -22,7 +23,7 @@ namespace Notebook
                 textBlock.Text = "На данный момент заметок нет";
             else
                 textBlock.Text = data;
-            InitializeComponent(); 
+            InitializeComponent();
             //почти уверен, что есть более адекватный способ обновить состояние, который я не смог найти..)
         }
 
@@ -81,9 +82,12 @@ namespace Notebook
         private void Button_Edit(object sender, RoutedEventArgs e)
         {
             EditNotebook taskWindow = new(Database.database[count], count);
+            if (count < Database.database.Count - 1)
+                textBlock.Text = Database.database[++count];
+            else if (count > 0)
+                textBlock.Text = Database.database[--count];
             taskWindow.Show();
         }
-
 
         /// <summary>
         /// Удаление записи

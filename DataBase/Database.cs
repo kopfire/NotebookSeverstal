@@ -7,7 +7,7 @@ namespace Notebook
     {
         public static List<string> database = new();
 
-        private readonly string path = "database.txt";
+        private readonly string path = @"..\..\..\Database\database.txt";
 
         /// <summary>
         /// Чтение из "базы данных" (текстовый документ)
@@ -26,14 +26,11 @@ namespace Notebook
             using StreamWriter writer = new(path, false);
             writer.Flush();
             for (int i = 0; i < database.Count; i++)
-            { 
+            {
                 writer.Write(database[i]);
                 if (i != database.Count - 1)
                     writer.Write(":-:");
             }
         }
-
-
-
     }
 }
